@@ -22,7 +22,7 @@
 #' ### Get the running mean of val for every 5 units of time:
 #' testdf$avg <- lumpmean(x=testdf$time,y=testdf$val,tspan = 5)
 #'
-#' @return A numeric vector of the running mean. NAs provided on tail when the span is not meet.
+#' @return A numeric vector of the running mean. NAs provided on tail when the span is not met.
 
 
 lumpmean <- function(x, y, tspan) {
