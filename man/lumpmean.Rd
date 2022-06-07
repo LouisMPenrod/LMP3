@@ -14,7 +14,7 @@ lumpmean(x, y, tspan)
 \item{tspan}{A numeric value to use as the time span.}
 }
 \value{
-A numeric vector of the running mean. NAs provided on tail when the span is not meet.
+A numeric vector of the running mean. NAs provided on tail when the span is not met.
 }
 \description{
 This function performs a running mean, but instead of

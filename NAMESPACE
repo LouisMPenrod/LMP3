@@ -3,4 +3,5 @@
 export(count2d)
 export(ineq)
 export(lumpmean)
+export(rcorr_filter)
 export(reextent)
