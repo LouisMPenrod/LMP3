@@ -3,9 +3,17 @@ Title: Louis's Personal Package
 Version: 0.0.0.9000
 Authors@R: person("Louis", "Penrod", email = "louismpenrod@gmail.com", role = c("aut", "cre"))
 Description: Various functions created by Louis for his and 
-    his colleagues work.
-Depends: R (>= 3.5.1),raster,dplyr
+    his colleagues' work.
+Depends: 
+    R (>= 3.5.1),
+    raster,
+    dplyr,
+    tidyverse
 License: MIT
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.2
+Imports: 
+    rclipboard,
+    shiny,
+    sortable
