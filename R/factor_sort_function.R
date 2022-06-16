@@ -58,7 +58,7 @@ factor_sort <- function(data,col){
         column(10, offset = 1,
                tabPanel(
                  "Default",
-                 tags$h1(str_glue("Reorder_factor for {quo_name(column_name)}")),
+                 tags$h1(str_glue("factor_sort for {quo_name(column_name)}")),
                  rank_list_basic,
                  br(),
                  # tags$b("Result"),
