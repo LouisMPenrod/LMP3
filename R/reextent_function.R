@@ -27,11 +27,11 @@ reextent <- function(ras,method){
   if(method==1){
     #create extents to cut map into two chunks
     ext1 <- raster::extent(-180, 0, -90, 90)
-    ext2 <- extent(0, 180, -90, 90)
+    ext2 <- raster::extent(0, 180, -90, 90)
     #crop raster
-    r1<-crop(ras,ext1)
-    r1 <- shift(r1, 360)
-    r2<-crop(ras,ext2)
+    r1<-raster::crop(ras,ext1)
+    r1 <- raster::shift(r1, 360)
+    r2<-raster::crop(ras,ext2)
     #merge raster after shift
     rasout <- raster::merge(r1, r2, overlap = FALSE)
     return(rasout)
@@ -39,11 +39,11 @@ reextent <- function(ras,method){
   if(method==2){
     #create extents to cut map into two chunks
     ext1 <- raster::extent(0, 180, -90, 90)
-    ext2 <- extent(180, 360, -90, 90)
+    ext2 <- raster::extent(180, 360, -90, 90)
     #crop raster
-    r1<-crop(ras,ext1)
-    r2<-crop(ras,ext2)
-    r2 <- shift(r2, -360)
+    r1<-raster::crop(ras,ext1)
+    r2<-raster::crop(ras,ext2)
+    r2 <- raster::shift(r2, -360)
     #merge raster after shift
     out <- raster::merge(r1, r2, overlap = FALSE)
     return(out)
