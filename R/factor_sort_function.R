@@ -70,7 +70,7 @@ factor_sort <- function(data,col){
 
       rclipboard::rclipboardSetup(),
 
-      # copy buttom
+      # copy button
       shiny::fluidRow(
         shiny::column(6,offset = 1,shiny::uiOutput("clip")
         )),
