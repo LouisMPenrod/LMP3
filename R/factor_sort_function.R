@@ -53,13 +53,13 @@ factor_sort <- function(data,col){
         shiny::column(10, offset = 1,
                       shiny::tabPanel(
                         "Default",
-                        tags$h1(stringr::str_glue("factor_sort for {dplyr::quo_name(column_name)}")),
+                        shiny::tags$h1(stringr::str_glue("factor_sort for {dplyr::quo_name(column_name)}")),
                         rank_list_basic,
                         shiny::br(),
-                        # tags$b("Result"),
+                        # shiny::tags$b("Result"),
                         # shiny::verbatimTextOutput("results_basic"),
                         # shiny::br(),
-                        tags$b("Releveling Code"),
+                        shiny::tags$b("Releveling Code"),
                         shiny::verbatimTextOutput("code")
                       )
         )
