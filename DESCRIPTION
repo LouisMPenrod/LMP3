@@ -12,8 +12,11 @@ LazyData: true
 RoxygenNote: 7.1.2
 Imports: 
     dplyr,
+    purrr,
     raster,
     rclipboard,
     shiny,
     sortable,
-    stringr
+    stringr,
+    tibble,
+    tidyr

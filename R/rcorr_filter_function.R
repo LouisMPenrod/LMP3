@@ -48,8 +48,6 @@ rcorr_filter <- function(rcorr_obj,
                          ccdir="all",
                          min_abs_cc=NA){
 
-  require(dplyr)
-
   ## Check inputs
 
   # check rcorr_obj class is 'rcorr'
@@ -79,42 +77,42 @@ rcorr_filter <- function(rcorr_obj,
 
   ## Extract and pivot correlation coefficients
   corrdf <- rcorr_obj %>%
-    pluck(1) %>%
-    as_tibble()%>%
-    mutate(var1=names(.))%>%
-    relocate(var1) %>%
-    pivot_longer(cols = -var1,names_to = "var2",values_to = "cc")%>%
-    mutate(key=paste0(pmin(var1,var2),pmax(var1,var2),sep="")) %>%
-    distinct(key,.keep_all = TRUE)
+    purrr::pluck(1) %>%
+    tibble::as_tibble()%>%
+    dplyr::mutate(var1=names(.))%>%
+    dplyr::relocate(var1) %>%
+    tidyr::pivot_longer(cols = -var1,names_to = "var2",values_to = "cc")%>%
+    dplyr::mutate(key=paste0(pmin(var1,var2),pmax(var1,var2),sep="")) %>%
+    dplyr::distinct(key,.keep_all = TRUE)
 
   ## Extract and pivot p-values
   corrpdf <- rcorr_obj %>%
-    pluck(3) %>%
-    as_tibble()%>%
-    mutate(var1=names(.))%>%
-    relocate(var1) %>%
-    pivot_longer(cols = -var1,names_to = "var2",values_to = "p.val")%>%
-    mutate(key=paste0(pmin(var1,var2),pmax(var1,var2),sep="")) %>%
-    distinct(key,.keep_all = TRUE)%>%
+    purrr::pluck(3) %>%
+    tibble::as_tibble()%>%
+    dplyr::mutate(var1=names(.))%>%
+    dplyr::relocate(var1) %>%
+    tidyr::pivot_longer(cols = -var1,names_to = "var2",values_to = "p.val")%>%
+    dplyr::mutate(key=paste0(pmin(var1,var2),pmax(var1,var2),sep="")) %>%
+    dplyr::distinct(key,.keep_all = TRUE)%>%
     dplyr::select(key,p.val)
 
   ## Combine correlation coefficients and p-values
   corrfinaldf <- merge(corrdf,corrpdf,by="key",all=TRUE) %>%
-    dplyr::select(-key) %>% arrange(var1) %>%
-    filter(!is.na(p.val))
+    dplyr::select(-key) %>% dplyr::arrange(var1) %>%
+    dplyr::filter(!is.na(p.val))
 
   ## Reduce data to meet conditions provided
   reduced <- corrfinaldf %>%
-    filter(case_when(
+    dplyr::filter(dplyr::case_when(
       ccdir=="pos" ~ cc>0,
       ccdir=="neg" ~ cc<0,
       ccdir=="zero" ~ cc==0,
       ccdir=="all" ~ cc<=1|cc>=-1)) %>%
-    filter(case_when(
+    dplyr::filter(dplyr::case_when(
       is.na(signif) ~ p.val>=0,
       !is.na(signif)&signif==TRUE ~ p.val<=a,
       !is.na(signif)&signif==FALSE ~ p.val>a)) %>%
-    filter(case_when(
+    dplyr::filter(dplyr::case_when(
       !is.na(min_abs_cc) ~ abs(cc)>=abs(min_abs_cc),
       TRUE ~ abs(cc)<=1))
 
