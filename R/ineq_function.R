@@ -46,5 +46,3 @@ ineq<-function(x,val,eq){
     return(NA)
   }
 }
-#devtools::document()
-
