@@ -12,6 +12,7 @@ LazyData: true
 RoxygenNote: 7.1.2
 Imports: 
     dplyr,
+    magrittr,
     purrr,
     raster,
     rclipboard,
