@@ -62,8 +62,8 @@ count2d <- function(x,y,begin=NA,end=NA,len=NA,xbegin=NA,xend=NA,xlen=NA,ybegin=
   data <- data.frame(x=x,y=y)
   invisible(lapply(seq_along(df$xbin),function(j){
     count <- data %>%
-      filter(x>=(df$xcen[j]-xlen/2)&x<=(df$xcen[j]+xlen/2)&y>=(df$ycen[j]-ylen/2)&y<=(df$ycen[j]+ylen/2)) %>%
-      count()
+      dplyr::filter(x>=(df$xcen[j]-xlen/2)&x<=(df$xcen[j]+xlen/2)&y>=(df$ycen[j]-ylen/2)&y<=(df$ycen[j]+ylen/2)) %>%
+      dplyr::count()
     df$count[j] <<- count
   }))
   return(df)
