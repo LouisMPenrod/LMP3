@@ -6,7 +6,7 @@ Description: Various functions created by Louis for his and
     his colleagues' work.
 Depends: 
     R (>= 3.5.1)
-License: MIT
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.2
