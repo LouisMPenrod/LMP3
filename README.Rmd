@@ -23,6 +23,7 @@ knitr::opts_chunk$set(
 
 The goal of LMP3 is to contain functions developed for my colleagues or myself. The package currently contains:
 
+* `select_select()` allows the user to utilize a shiny app to more easily select and arrange the columns in a dataset.
 * `factor_sort()` allows the user to utilize a shiny app to more easily rearrange the levels of a factor.
 * `rcorr_fliter()` provides a method to reduce large rcorr correlation matrices into simpler data frames and filter to match specific conditions.
 * `lumpmean()` provides a method to use a running mean that averages the observations with a window of a specific time, not the number of observations.

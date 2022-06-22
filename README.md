@@ -11,6 +11,8 @@
 The goal of LMP3 is to contain functions developed for my colleagues or
 myself. The package currently contains:
 
+-   `select_select()` allows the user to utilize a shiny app to more
+    easily select and arrange the columns in a dataset.
 -   `factor_sort()` allows the user to utilize a shiny app to more
     easily rearrange the levels of a factor.
 -   `rcorr_fliter()` provides a method to reduce large rcorr correlation
