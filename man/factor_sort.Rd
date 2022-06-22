@@ -2,10 +2,7 @@
 % Please edit documentation in R/factor_sort_function.R
 \name{factor_sort}
 \alias{factor_sort}
-\title{Drag and drop to reorder levels of a factor.
-Opens a shiny app to help resort levels of a factor.
-Drag and drop levels in the appropriate order.
-Copy the code output and replace the factor_sort() call.}
+\title{Drag and drop to reorder levels of a factor.}
 \usage{
 factor_sort(data, col)
 }
@@ -14,19 +11,13 @@ factor_sort(data, col)
 
 \item{col}{A factor or character vector}
 }
-\value{
-
-}
 \description{
-Drag and drop to reorder levels of a factor.
 Opens a shiny app to help resort levels of a factor.
 Drag and drop levels in the appropriate order.
 Copy the code output and replace the factor_sort() call.
 }
 \examples{
-chickwts \%>\% factor_sort(col = feed)
-
-
+\donttest{chickwts \%>\% factor_sort(col = feed)}
 
 
 }

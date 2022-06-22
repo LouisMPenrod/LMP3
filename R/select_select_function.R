@@ -6,13 +6,11 @@
 #'
 #' @param data  A data frame or tibble.
 #'
-#' @return
-#' @export
 #'
 #' @examples
-#' mtcars %>% select_select()
+#' \donttest{mtcars %>% select_select()}
 #'
-#'
+#'@export
 select_select <- function(data){
   # Check data is a data.frame or tibble
   if(!"data.frame" %in% class(data)){

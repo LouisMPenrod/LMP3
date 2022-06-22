@@ -22,8 +22,7 @@ This function shifts the extent of a raster from
 }
 \examples{
 ### Create Test data
-r<-raster()
-values(r) <- c(rep(1:360,length.out=64800/2),rep(1:360,length.out=64800/2))
+r <- raster::raster(vals = c(rep(1:360,length.out=64800/2),rep(1:360,length.out=64800/2)))
 plot(r)
 # convert r from -180:180 to 0:360
 out <- reextent(r, method = 1)

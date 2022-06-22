@@ -1,4 +1,5 @@
 #' Drag and drop to reorder levels of a factor.
+#'
 #' Opens a shiny app to help resort levels of a factor.
 #' Drag and drop levels in the appropriate order.
 #' Copy the code output and replace the factor_sort() call.
@@ -6,15 +7,12 @@
 #' @param data A data.frame
 #' @param col A factor or character vector
 #'
-#' @return
-#' @export
 #'
 #' @examples
-#' chickwts %>% factor_sort(col = feed)
+#' \donttest{chickwts %>% factor_sort(col = feed)}
 #'
 #'
-#'
-#'
+#'@export
 factor_sort <- function(data,col){
   # Ensure data is a data.frame or a tibble
   if(!"data.frame" %in% class(data)){

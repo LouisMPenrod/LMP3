@@ -7,11 +7,12 @@
 #' @param method Numerical value to indicate direction of
 #' extent change. '1' shifts from -180:180 to 0:360. '2' shifts from
 #' 0:360 to -180:180.
-#' @export
+#'
+#' @return Shifted raster
+#'
 #' @examples
 #' ### Create Test data
-#' r<-raster()
-#' values(r) <- c(rep(1:360,length.out=64800/2),rep(1:360,length.out=64800/2))
+#' r <- raster::raster(vals = c(rep(1:360,length.out=64800/2),rep(1:360,length.out=64800/2)))
 #' plot(r)
 #' # convert r from -180:180 to 0:360
 #' out <- reextent(r, method = 1)
@@ -20,9 +21,7 @@
 #' out2 <- reextent(out, method = 2)
 #' plot(out2)
 #'
-#' @return Shifted raster
-
-
+#' @export
 reextent <- function(ras,method){
   if(method==1){
     #create extents to cut map into two chunks

@@ -24,14 +24,11 @@ A data.frame indicating the pairs of variables with correlation coefficients or 
 This function takes an rcorr list, converts in into a data.frame, and allows the user to filter the correlations based on significance and correlation coefficient.
 }
 \examples{
-library(tidyverse)
-library(Hmisc)
-
 # create rcorr object
 out <- mtcars \%>\%
-  select(mpg:qsec) \%>\%
+  dplyr::select(mpg:qsec) \%>\%
   as.matrix() \%>\%
-  rcorr()
+  Hmisc::rcorr()
 
 # filter by signif
 rcorr_filter(rcorr_obj = out, signif = NA, a = 0.05, ccdir = "all", min_abs_cc = NA)
@@ -53,4 +50,5 @@ rcorr_filter(rcorr_obj = out, signif = TRUE, a = 0.05, ccdir = "zero", min_abs_c
 rcorr_filter(rcorr_obj = out, signif = TRUE, a = 0.05, ccdir = "all", min_abs_cc = NA)
 rcorr_filter(rcorr_obj = out, signif = TRUE, a = 0.05, ccdir = "all", min_abs_cc = 0.5)
 rcorr_filter(rcorr_obj = out, signif = TRUE, a = 0.05, ccdir = "pos", min_abs_cc = 0.5)
+
 }

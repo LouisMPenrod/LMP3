@@ -6,7 +6,9 @@
 #' @param val Value to evaluate with inequality
 #' @param eq inequality symbol as a character.
 #'     Options are ">", "<", ">=", "<=", or "=".
-#' @export
+#'
+#' @return Value of observations that fit the condition given.
+#'
 #' @examples
 #' ### Create Test data
 #' a<-seq(1,5,by=1)
@@ -19,8 +21,8 @@
 #'
 #' #for dataframe:
 #' apply(data,2,function(x) ineq(x,val=4,eq=">"))
-#' @return Value of observations that fit the condition given.
-
+#'
+#' @export
 ineq<-function(x,val,eq){
   if(eq==">"){
     sm<-length(x[x>val])

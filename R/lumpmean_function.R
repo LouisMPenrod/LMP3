@@ -8,7 +8,8 @@
 #' @param y A numeric vector of the data to average.
 #' @param tspan A numeric value to use as the time span.
 #'
-#' @export
+#' @return A numeric vector of the running mean. NAs provided on tail when the span is not met.
+#'
 #' @examples
 #' ### Create Test data
 #' testx <- 1
@@ -17,14 +18,12 @@
 #'   testx <- c(testx,hold)
 #'   rm(hold)
 #' }
-#' testdf <- data.frame(time=testx,val=sample(1:100,length(testx),replace=T))
+#' testdf <- data.frame(time=testx,val=sample(1:100,length(testx),replace=TRUE))
 #'
 #' ### Get the running mean of val for every 5 units of time:
 #' testdf$avg <- lumpmean(x=testdf$time,y=testdf$val,tspan = 5)
 #'
-#' @return A numeric vector of the running mean. NAs provided on tail when the span is not met.
-
-
+#' @export
 lumpmean <- function(x, y, tspan) {
   checktspan <- unlist(lapply(seq_along(x), function(k)
     x[k + 1] - x[k]))

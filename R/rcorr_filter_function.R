@@ -10,16 +10,12 @@
 #'
 #' @return A data.frame indicating the pairs of variables with correlation coefficients or p-values which match the conditions provided.
 #'
-#' @export
 #' @examples
-#' library(tidyverse)
-#' library(Hmisc)
-#'
 #' # create rcorr object
 #' out <- mtcars %>%
-#'   select(mpg:qsec) %>%
+#'   dplyr::select(mpg:qsec) %>%
 #'   as.matrix() %>%
-#'   rcorr()
+#'   Hmisc::rcorr()
 #'
 #' # filter by signif
 #' rcorr_filter(rcorr_obj = out, signif = NA, a = 0.05, ccdir = "all", min_abs_cc = NA)
@@ -41,7 +37,8 @@
 #' rcorr_filter(rcorr_obj = out, signif = TRUE, a = 0.05, ccdir = "all", min_abs_cc = NA)
 #' rcorr_filter(rcorr_obj = out, signif = TRUE, a = 0.05, ccdir = "all", min_abs_cc = 0.5)
 #' rcorr_filter(rcorr_obj = out, signif = TRUE, a = 0.05, ccdir = "pos", min_abs_cc = 0.5)
-
+#'
+#' @export
 rcorr_filter <- function(rcorr_obj,
                          signif=NA,
                          a=0.05,

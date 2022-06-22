@@ -29,7 +29,7 @@ while(testx[length(testx)]<30){
   testx <- c(testx,hold)
   rm(hold)
 }
-testdf <- data.frame(time=testx,val=sample(1:100,length(testx),replace=T))
+testdf <- data.frame(time=testx,val=sample(1:100,length(testx),replace=TRUE))
 
 ### Get the running mean of val for every 5 units of time:
 testdf$avg <- lumpmean(x=testdf$time,y=testdf$val,tspan = 5)

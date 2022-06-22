@@ -9,16 +9,12 @@ select_select(data)
 \arguments{
 \item{data}{A data frame or tibble.}
 }
-\value{
-
-}
 \description{
 Opens a shiny app to help select and sort desired columns.
 Drag and drop levels in the appropriate order.
 Copy the code output and replace the select_select() call.
 }
 \examples{
-mtcars \%>\% select_select()
-
+\donttest{mtcars \%>\% select_select()}
 
 }

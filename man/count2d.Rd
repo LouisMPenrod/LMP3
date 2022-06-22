@@ -51,6 +51,8 @@ end, and width(len) values. Provide either begin, end, and len,
 or xbegin, xend, xlen, ybegin, yend, and ylen.
 }
 \examples{
+
+\donttest{
 ### Create Test data
 x1 <- runif(1000,0,10)
 y1 <- runif(1000,0,10)
@@ -62,5 +64,7 @@ dfout <- count2d(x=data1$x,y=data1$y,begin=0,end=10,len=1)
 dfout <- count2d(x=data1$x,y=data1$y,
                  xbegin=0,xend=10,xlen=1,
                  ybegin=0,yend=10,ylen=1)
+}
+
 
 }

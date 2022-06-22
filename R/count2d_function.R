@@ -17,8 +17,11 @@
 #' @param yend A numeric value to end the y bins.
 #' @param ylen A numeric value to use and the y bin width.
 #'
-#' @export
+#' @return A dataframe with the x and y bin number, centers, range, and the count.
+#'
 #' @examples
+#'
+#' \donttest{
 #' ### Create Test data
 #' x1 <- runif(1000,0,10)
 #' y1 <- runif(1000,0,10)
@@ -30,9 +33,10 @@
 #' dfout <- count2d(x=data1$x,y=data1$y,
 #'                  xbegin=0,xend=10,xlen=1,
 #'                  ybegin=0,yend=10,ylen=1)
+#'}
 #'
-#' @return A dataframe with the x and y bin number, centers, range, and the count.
-
+#'
+#' @export
 count2d <- function(x,y,begin=NA,end=NA,len=NA,xbegin=NA,xend=NA,xlen=NA,ybegin=NA,yend=NA,ylen=NA){
   if(!is.numeric(c(x,y,xbegin,xend,xlen,ybegin,yend,ylen,begin,end,len))){
     stop("All values must be numeric")

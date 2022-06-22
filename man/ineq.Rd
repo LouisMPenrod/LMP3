@@ -33,4 +33,5 @@ ineq(a,val=3,eq="<")
 
 #for dataframe:
 apply(data,2,function(x) ineq(x,val=4,eq=">"))
+
 }
