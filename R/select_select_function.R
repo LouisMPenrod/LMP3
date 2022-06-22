@@ -14,7 +14,7 @@
 #'
 #'
 select_select <- function(data){
-  # Check data is a data.frame
+  # Check data is a data.frame or tibble
   if(!"data.frame" %in% class(data)){
     stop("Object data must have a class data.frame (or tibble).")
   }

@@ -16,6 +16,11 @@
 #'
 #'
 factor_sort <- function(data,col){
+  # Ensure data is a data.frame or a tibble
+  if(!"data.frame" %in% class(data)){
+    stop("Object data must have a class data.frame (or tibble).")
+  }
+
   # Ensure column exists in data
   t <- try(data %>% dplyr::pull(var = !!dplyr::enquo(col)), silent = TRUE)
   if("try-error" %in% class(t)) stop("column provided does not exist")
@@ -38,7 +43,7 @@ factor_sort <- function(data,col){
   labels <- as.list(levels(factor(data %>%
                                     dplyr::pull(var = !!column_name))))
 
-  # Set up soratable rank_list
+  # Set up sortable rank_list
   rank_list_basic <- sortable::rank_list(
     text = "Drag the items to the desired order",
     labels = labels,
