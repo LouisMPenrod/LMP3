@@ -10,7 +10,8 @@
 #' @export
 #'
 #' @examples
-#' factor_sort(chickwts, col=feed)
+#' chickwts %>% factor_sort(col = feed)
+#'
 #'
 #'
 #'

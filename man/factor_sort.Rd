@@ -24,7 +24,8 @@ Drag and drop levels in the appropriate order.
 Copy the code output and replace the factor_sort() call.
 }
 \examples{
-factor_sort(chickwts, col=feed)
+chickwts \%>\% factor_sort(col = feed)
+
 
 
 
