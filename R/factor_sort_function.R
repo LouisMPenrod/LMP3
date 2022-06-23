@@ -98,9 +98,9 @@ factor_sort <- function(data,col){
       # Main text generation
       text_out <- shiny::reactive({
 
-        new_order_text <- paste0('\"',input$rank_list_basic,'\"', collapse=',')
+        new_order_text <- paste0('\"',input$rank_list_basic,'\"', collapse=', ')
         text_out_code <- stringr::str_c("    mutate(",dplyr::quo_name(column_name)," = fct_relevel(",
-                                        dplyr::quo_name(column_name),", levels = ",  new_order_text,"))")
+                                        dplyr::quo_name(column_name),", ",  new_order_text,"))")
 
         text_out <- paste(" %>%",text_out_code, sep="\n")
 
